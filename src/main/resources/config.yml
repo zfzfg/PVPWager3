@@ -1,0 +1,143 @@
+# ============================================
+# PvPWager - Haupt-Konfiguration
+# ============================================
+
+settings:
+  prefix: "&6[PvP]&r"
+  main-world: "world"
+  
+  # Inventory-Gruppe für Multiverse-Inventories
+  # Items landen in dieser Gruppe (default = world)
+  inventory-group: "default"
+  
+  # Weltenverwaltung: both, arena, none
+  world-loading: "both"
+  
+  # Command-Einschränkung: both, arena, none
+  command-restriction: "both"
+  
+  # Zuschauer-System
+  spectators:
+    enabled: true
+    max-spectators: 10
+    announce-join: true
+    announce-leave: true
+  
+  # Match-Einstellungen
+  match:
+    countdown-time: 10
+    max-duration: 600  # 10 Minuten
+    draw-vote-time: 30  # Zeit für Draw-Abstimmung
+    
+    # No-Wager Mode - Erlaubt Kämpfe ohne Wetteinsatz
+    allow-no-wager: true
+    
+  # Arena-Regeneration
+  arena:
+    # Wenn true, werden Arena-Backups beim ersten Start erstellt
+    create-backups-on-startup: true
+    
+    # Verzögerung vor Regeneration (in Sekunden)
+    regeneration-delay: 7
+    
+    # Wenn true, werden Spieler benachrichtigt wenn Arena regeneriert wird
+    notify-regeneration: true
+    
+  # Sicherheitsüberprüfungen
+  checks:
+    inventory-space: true
+    minimum-bet-items: 1
+    minimum-bet-money: 10
+    
+    # Max Bet (0 = unlimited)
+    max-bet-money: 100000
+
+# Nachrichten
+messages:
+  prefix: "&6[PvP]&r"
+  
+  # Request System
+  request:
+    sent: "&aDu hast &e{player} &aeine PvP-Anfrage gesendet!"
+    received: "&e{player} &amöchte gegen dich kämpfen! &7(/pvp accept {player})"
+    received-clickable: "&a&l[ANNEHMEN]"
+    accepted: "&aDu hast die Anfrage von &e{player} &aangenommen!"
+    expired: "&cDie Anfrage von &e{player} &cist abgelaufen!"
+    no-request: "&cDu hast keine Anfrage von diesem Spieler!"
+    already-in-match: "&cDieser Spieler ist bereits in einem Match!"
+    self-request: "&cDu kannst dir selbst keine Anfrage senden!"
+  
+  # Wager Setup
+  wager:
+    setup-start: "&eRichte deinen Wetteinsatz ein..."
+    waiting-opponent: "&7Warte auf &e{player}&7..."
+    both-ready: "&aBeide Spieler sind bereit!"
+    item-added: "&aItem hinzugefügt zum Einsatz!"
+    item-removed: "&cItem entfernt vom Einsatz!"
+    money-set: "&aGeld-Einsatz: &6${amount}"
+    not-enough-money: "&cDu hast nicht genug Geld!"
+    inventory-full: "&cDein Inventar muss mindestens {slots} freie Plätze haben!"
+    opponent-inventory-full: "&cDein Gegner hat nicht genug Platz im Inventar!"
+    min-bet-required: "&cMindest-Einsatz: {amount} Items oder ${money}"
+    
+    # No-Wager Mode
+    skip-voted: "&aDu hast für Skip gestimmt!"
+    skip-cancelled: "&7Skip-Abstimmung abgebrochen."
+    skip-accepted: "&aBeide Spieler kämpfen ohne Einsatz!"
+    
+  # Match
+  match:
+    starting: "&aMatch startet in &e{time} &aSekunden!"
+    started: "&a&lMATCH GESTARTET!"
+    selecting-arena: "&eWähle eine Arena aus..."
+    selecting-equipment: "&eWähle ein Equipment-Set aus..."
+    spectator-join: "&7{player} schaut nun zu."
+    spectator-leave: "&7{player} schaut nicht mehr zu."
+    
+    # Arena Regeneration
+    regenerating: "&eArena wird regeneriert: &6{arena}"
+    regenerated: "&aArena wurde regeneriert: &6{arena}"
+    
+  # Match Ende
+  end:
+    winner: "&6&l{player} HAT GEWONNEN!"
+    surrender: "&e{player} &chat aufgegeben!"
+    draw: "&eUnentschieden! Alle Einsätze werden zurückgegeben."
+    timeout: "&cZeit abgelaufen! Unentschieden."
+    items-returned: "&7Deine Items wurden zurückgegeben."
+    items-won: "&aDu hast die Einsätze gewonnen!"
+    no-wager-end: "&7Kein Wetteinsatz-Match beendet."
+    
+  # Surrender & Draw
+  surrender:
+    confirm: "&cGib &e/surrender confirm &cein, um aufzugeben!"
+    cancelled: "&7Aufgabe abgebrochen."
+    success: "&cDu hast aufgegeben!"
+    
+  draw:
+    vote-started: "&e{player} &ahat für Unentschieden gestimmt!"
+    vote-accept: "&aGib &e/draw accept &aein, um zuzustimmen!"
+    vote-deny: "&cGib &e/draw deny &cein, um abzulehnen!"
+    accepted: "&aUnentschieden akzeptiert!"
+    denied: "&cUnentschieden abgelehnt!"
+    timeout: "&cAbstimmung abgelaufen."
+  
+  # Fehler
+  error:
+    no-permission: "&cKeine Berechtigung!"
+    player-not-found: "&cSpieler nicht gefunden!"
+    no-arena: "&cKeine Arena gefunden!"
+    no-equipment: "&cKein Equipment-Set gefunden!"
+    already-in-match: "&cDu bist bereits in einem Match!"
+    not-in-match: "&cDu bist in keinem Match!"
+    command-blocked: "&cBefehle sind im Match gesperrt!"
+    
+    # Arena Regeneration Errors
+    no-backup: "&cKein Backup für Arena-Welt gefunden: {world}"
+    regeneration-failed: "&cArena-Regeneration fehlgeschlagen: {world}"
+
+# Berechtigungen für spezielle Features
+permissions:
+  spectate-all: "pvpwager.spectate.all"
+  bypass-bet-limit: "pvpwager.bypass.betlimit"
+  no-wager: "pvpwager.nowager"
