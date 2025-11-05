@@ -1,0 +1,503 @@
+# ============================================
+# PvPWager - Arena Konfiguration
+# Mit allen verfügbaren Spawn-Types!
+# ============================================
+
+arenas:
+  
+  # ==== FIXED_SPAWNS (Standard - Feste Spawn-Punkte) ====
+  standard:
+    enabled: true
+    display-name: "&eStandard Arena"
+    description: "&7Klassische PvP-Arena mit festen Spawns"
+    
+    gui-item:
+      material: DIAMOND_SWORD
+      slot: 11
+      name: "&e&lSTANDARD ARENA"
+      lore:
+        - "&7Klassische PvP-Arena"
+        - "&7mit zwei festen Spawn-Points"
+        - ""
+        - "&aSpawn-Type: &7FIXED_SPAWNS"
+        - "&aGröße: &7Mittel"
+    
+    worlds:
+      arena-world: "PvPArena"
+      regenerate-world: true  # Mit /mv regen
+    
+    spawn-settings:
+      spawn-type: "FIXED_SPAWNS"  # Standard
+    
+    spawns:
+      player1:
+        x: 50
+        y: 70
+        z: 0
+        yaw: -90
+        pitch: 0
+      
+      player2:
+        x: -50
+        y: 70
+        z: 0
+        yaw: 90
+        pitch: 0
+      
+      spectator:
+        x: 0
+        y: 85
+        z: 0
+        yaw: 0
+        pitch: 45
+    
+    boundaries:
+      enabled: true
+      min-x: -100
+      max-x: 100
+      min-y: 50
+      max-y: 100
+      min-z: -100
+      max-z: 100
+  
+  
+  # ==== RANDOM_RADIUS (Zufällig im Radius) ====
+  desert:
+    enabled: true
+    display-name: "&6Desert Arena"
+    description: "&7Kämpfe in der Wüste - zufällige Spawns!"
+    
+    gui-item:
+      material: SAND
+      slot: 12
+      name: "&6&lDESERT ARENA"
+      lore:
+        - "&7Große Wüsten-Arena"
+        - "&7Spawns zufällig verteilt!"
+        - ""
+        - "&aSpawn-Type: &7RANDOM_RADIUS"
+        - "&aRadius: &7100 Blöcke"
+    
+    worlds:
+      arena-world: "DesertArena"
+      regenerate-world: true
+    
+    spawn-settings:
+      spawn-type: "RANDOM_RADIUS"
+      
+      random-radius:
+        center-x: 0
+        center-z: 0
+        radius: 100
+        min-distance: 20  # Mindestabstand zwischen Spielern
+    
+    spawns:
+      spectator:
+        x: 0
+        y: 100
+        z: 0
+        yaw: 0
+        pitch: 45
+    
+    boundaries:
+      enabled: true
+      min-x: -120
+      max-x: 120
+      min-y: 50
+      max-y: 120
+      min-z: -120
+      max-z: 120
+  
+  
+  # ==== RANDOM_AREA (Zufällig in Rechteck) ====
+  forest:
+    enabled: true
+    display-name: "&2Forest Arena"
+    description: "&7Verstecke dich im Wald!"
+    
+    gui-item:
+      material: OAK_LOG
+      slot: 13
+      name: "&2&lFOREST ARENA"
+      lore:
+        - "&7Wald-Arena mit Verstecken"
+        - "&7Spawns in Rechteck-Area"
+        - ""
+        - "&aSpawn-Type: &7RANDOM_AREA"
+        - "&aArea: &750x50 bis -50x-50"
+    
+    worlds:
+      arena-world: "ForestArena"
+      regenerate-world: false  # Kein Regen
+    
+    spawn-settings:
+      spawn-type: "RANDOM_AREA"
+      
+      random-area:
+        point1:
+          x: 50
+          z: 50
+        point2:
+          x: -50
+          z: -50
+        min-distance: 30
+    
+    spawns:
+      spectator:
+        x: 0
+        y: 120
+        z: 0
+        yaw: 0
+        pitch: 60
+    
+    boundaries:
+      enabled: true
+      min-x: -60
+      max-x: 60
+      min-y: 60
+      max-y: 150
+      min-z: -60
+      max-z: 60
+  
+  
+  # ==== RANDOM_CUBE (Zufällig in 3D-Würfel) ====
+  skybase:
+    enabled: true
+    display-name: "&bSkybase Arena"
+    description: "&7Kampf in luftiger Höhe - 3D Spawns!"
+    
+    gui-item:
+      material: ELYTRA
+      slot: 14
+      name: "&b&lSKYBASE ARENA"
+      lore:
+        - "&7Kämpfe auf Inseln"
+        - "&7in luftiger Höhe!"
+        - ""
+        - "&aSpawn-Type: &7RANDOM_CUBE"
+        - "&cAchtung: &7Fall-Schaden!"
+    
+    worlds:
+      arena-world: "SkybaseArena"
+      regenerate-world: true
+    
+    spawn-settings:
+      spawn-type: "RANDOM_CUBE"
+      
+      random-cube:
+        point1:
+          x: 50
+          y: 100
+          z: 50
+        point2:
+          x: -50
+          y: 150
+          z: -50
+        min-distance: 25
+    
+    spawns:
+      spectator:
+        x: 0
+        y: 180
+        z: 0
+        yaw: 0
+        pitch: 60
+    
+    boundaries:
+      enabled: true
+      min-x: -60
+      max-x: 60
+      min-y: 90
+      max-y: 160
+      min-z: -60
+      max-z: 60
+  
+  
+  # ==== MULTIPLE_SPAWNS (Liste von festen Spawn-Punkten) ====
+  colosseum:
+    enabled: true
+    display-name: "&6Colosseum"
+    description: "&7Gladiatoren-Arena mit mehreren Spawns!"
+    
+    gui-item:
+      material: GOLDEN_SWORD
+      slot: 15
+      name: "&6&lCOLOSSEUM"
+      lore:
+        - "&7Epische Gladiatoren-Arena"
+        - "&7mit 8 Spawn-Punkten"
+        - ""
+        - "&aSpawn-Type: &7MULTIPLE_SPAWNS"
+        - "&eSpektator-freundlich!"
+    
+    worlds:
+      arena-world: "Colosseum"
+      regenerate-world: false
+    
+    spawn-settings:
+      spawn-type: "MULTIPLE_SPAWNS"
+    
+    spawns:
+      # Mehrere Spawns - Spieler werden zufällig ausgewählt
+      spawn1:
+        x: 50
+        y: 64
+        z: 0
+        yaw: -90
+        pitch: 0
+      
+      spawn2:
+        x: -50
+        y: 64
+        z: 0
+        yaw: 90
+        pitch: 0
+      
+      spawn3:
+        x: 0
+        y: 64
+        z: 50
+        yaw: 180
+        pitch: 0
+      
+      spawn4:
+        x: 0
+        y: 64
+        z: -50
+        yaw: 0
+        pitch: 0
+      
+      spawn5:
+        x: 35
+        y: 64
+        z: 35
+        yaw: -135
+        pitch: 0
+      
+      spawn6:
+        x: -35
+        y: 64
+        z: 35
+        yaw: 135
+        pitch: 0
+      
+      spawn7:
+        x: 35
+        y: 64
+        z: -35
+        yaw: -45
+        pitch: 0
+      
+      spawn8:
+        x: -35
+        y: 64
+        z: -35
+        yaw: 45
+        pitch: 0
+      
+      spectator:
+        x: 0
+        y: 85
+        z: 0
+        yaw: 0
+        pitch: 45
+    
+    boundaries:
+      enabled: true
+      min-x: -60
+      max-x: 60
+      min-y: 60
+      max-y: 95
+      min-z: -60
+      max-z: 60
+  
+  
+  # ==== COMMAND (Custom Command zum Spawnen) ====
+  custom:
+    enabled: true
+    display-name: "&dCustom Arena"
+    description: "&7Spawns via Custom Command!"
+    
+    gui-item:
+      material: COMMAND_BLOCK
+      slot: 16
+      name: "&d&lCUSTOM ARENA"
+      lore:
+        - "&7Arena mit Custom-Command"
+        - "&7für erweiterte Spawns"
+        - ""
+        - "&aSpawn-Type: &7COMMAND"
+        - "&7Perfekt für Plugins!"
+    
+    worlds:
+      arena-world: "CustomArena"
+      regenerate-world: true
+    
+    spawn-settings:
+      spawn-type: "COMMAND"
+      
+      command:
+        # Command wird ausgeführt für jeden Spieler
+        # Verfügbare Placeholders:
+        # {player} - Spielername
+        # {player_number} - 1 oder 2
+        # {x}, {y}, {z} - Aktuelle Koordinaten
+        # {world} - Welt-Name
+        command: "tp {player} 0 100 {player_number}0"
+        
+        # Optional: Eigene Placeholders
+        placeholders:
+          arena: "CustomArena"
+          mode: "pvp"
+    
+    spawns:
+      spectator:
+        x: 0
+        y: 120
+        z: 0
+        yaw: 0
+        pitch: 45
+    
+    boundaries:
+      enabled: true
+      min-x: -50
+      max-x: 50
+      min-y: 90
+      max-y: 130
+      min-z: -50
+      max-z: 50
+  
+  
+  # ==== NETHER ARENA (RANDOM_AREA Beispiel) ====
+  nether:
+    enabled: true
+    display-name: "&cNether Arena"
+    description: "&7Höllischer Kampf!"
+    
+    gui-item:
+      material: NETHERITE_SWORD
+      slot: 17
+      name: "&c&lNETHER ARENA"
+      lore:
+        - "&7Kämpfe in der"
+        - "&7Nether-Dimension!"
+        - ""
+        - "&aSpawn-Type: &7RANDOM_AREA"
+        - "&cAchtung: &7Lava & Feuer!"
+    
+    worlds:
+      arena-world: "NetherArena"
+      regenerate-world: true
+    
+    spawn-settings:
+      spawn-type: "RANDOM_AREA"
+      
+      random-area:
+        point1:
+          x: 30
+          z: 30
+        point2:
+          x: -30
+          z: -30
+        min-distance: 20
+    
+    spawns:
+      spectator:
+        x: 0
+        y: 100
+        z: 0
+        yaw: 0
+        pitch: 45
+    
+    boundaries:
+      enabled: true
+      min-x: -40
+      max-x: 40
+      min-y: 55
+      max-y: 110
+      min-z: -40
+      max-z: 40
+  
+  
+  # ==== ICE ARENA (RANDOM_RADIUS Beispiel) ====
+  ice:
+    enabled: true
+    display-name: "&bIce Arena"
+    description: "&7Rutschige Eiswelt!"
+    
+    gui-item:
+      material: ICE
+      slot: 18
+      name: "&b&lICE ARENA"
+      lore:
+        - "&7Kämpfe auf"
+        - "&7rutschigem Eis!"
+        - ""
+        - "&aSpawn-Type: &7RANDOM_RADIUS"
+        - "&bBesonderheit: &7Rutschig!"
+    
+    worlds:
+      arena-world: "IceArena"
+      regenerate-world: true
+    
+    spawn-settings:
+      spawn-type: "RANDOM_RADIUS"
+      
+      random-radius:
+        center-x: 0
+        center-z: 0
+        radius: 80
+        min-distance: 25
+    
+    spawns:
+      spectator:
+        x: 0
+        y: 100
+        z: 0
+        yaw: 0
+        pitch: 50
+    
+    boundaries:
+      enabled: true
+      min-x: -90
+      max-x: 90
+      min-y: 65
+      max-y: 110
+      min-z: -90
+      max-z: 90
+
+
+# ============================================
+# SPAWN-TYPE ERKLÄRUNGEN
+# ============================================
+#
+# FIXED_SPAWNS:
+#   - Feste Spawn-Punkte (player1, player2)
+#   - Standard für klassische Arenas
+#
+# RANDOM_RADIUS:
+#   - Zufällig im Kreis um Zentrum
+#   - Gut für offene Arenas
+#   - min-distance: Mindestabstand zwischen Spielern
+#
+# RANDOM_AREA:
+#   - Zufällig in Rechteck (2D)
+#   - Gut für flache Arenas
+#   - Y-Koordinate = Höchster Block
+#
+# RANDOM_CUBE:
+#   - Zufällig in 3D-Würfel
+#   - Perfekt für Skybase/Höhlen
+#   - Y-Koordinate auch zufällig!
+#
+# MULTIPLE_SPAWNS:
+#   - Liste von Spawns
+#   - 2 werden zufällig ausgewählt
+#   - Gut für Varianz
+#
+# COMMAND:
+#   - Custom Command pro Spieler
+#   - Maximale Flexibilität
+#   - Placeholders verfügbar
+#
+# ============================================
